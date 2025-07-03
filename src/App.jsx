@@ -1,5 +1,17 @@
-const App = () => {
-  return <h1>App</h1>;
-};
+import { Application, extend } from "@pixi/react";
+import { Container, Graphics, Sprite } from "pixi.js";
+import PixiScene from "./PixiScene";
 
-export default App;
+extend({
+  Container,
+  Graphics,
+  Sprite,
+});
+
+export default function App() {
+  return (
+    <Application background={"#1099bb"} resizeTo={window} antialias>
+      <PixiScene />
+    </Application>
+  );
+}
