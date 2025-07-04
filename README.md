@@ -1,12 +1,59 @@
-# React + Vite
+# 🐠 React Fish Pond – Pixi.js Integration
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This project is a React-based implementation of the original Pixi.js Fish Pond tutorial. It demonstrates the use of `@pixi/react` to create dynamic, responsive canvas-based animations in a modular React environment.
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## 🔗 GitHub Repository
 
-## Expanding the ESLint configuration
+[👉 View the Project on GitHub](https://github.com/vishwajeet-patil-dev/fish-pond-assignment)
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+---
+
+## ⚙️ How to Run the Project
+
+Follow the steps below to run this project locally:
+
+### 1. Clone the Repository
+
+```bash
+git clone https://github.com/vishwajeet-patil-dev/fish-pond-assignment.git
+```
+
+### 2. Go To Project Folder
+
+```bash
+cd react-fish-pond
+```
+
+### 3. Install Dependancies
+
+```bash
+npm install
+```
+
+### 4. Run Project LOcally
+
+```bash
+npm run dev
+```
+
+### 5. Open In Your Browser
+
+```bash
+http://localhost:5173
+```
+
+## 🖼️ Screenshots
+
+### 🏞️ Pond Overview
+
+![Pond Overview](./screenshots/pond-overview.png)
+
+### 🐟 Animated Fish
+
+![Fish Animation](./screenshots/fish-animation.png)
+
+### 📱 Responsive View
+
+![Responsive](./screenshots/responsive-view.png)
