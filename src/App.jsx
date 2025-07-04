@@ -1,8 +1,8 @@
 import { Application, extend } from "@pixi/react";
 import { Container, Graphics, Sprite } from "pixi.js";
-import AddBackground from "./AddBackground";
-import AddFish from "./AddFish";
-import AddOverlay from "./AddOverlay";
+import AddBackground from "./components/AddBackground";
+import AddFish from "./components/AddFish";
+import AddOverlay from "./components/AddOverlay";
 import { useRef } from "react";
 
 extend({

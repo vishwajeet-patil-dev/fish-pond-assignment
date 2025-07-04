@@ -1,6 +1,6 @@
 import { useApplication } from "@pixi/react";
 import { useEffect, useRef, useState } from "react";
-import { useAsset } from "./context/assetContext";
+import { useAsset } from "../context/assetContext";
 
 const fishAssets = ["fish1", "fish2", "fish3", "fish4", "fish5"];
 

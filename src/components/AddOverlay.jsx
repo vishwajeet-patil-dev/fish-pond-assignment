@@ -1,6 +1,6 @@
 import { useApplication } from "@pixi/react";
 import { useEffect, useRef } from "react";
-import { useAsset } from "./context/assetContext";
+import { useAsset } from "../context/assetContext";
 
 export default function AddOverlay() {
   const { app } = useApplication();

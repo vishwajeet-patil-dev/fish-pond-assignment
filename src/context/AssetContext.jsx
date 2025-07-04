@@ -16,8 +16,6 @@ export const AssetContextWrapper = ({ children }) => {
     loadAssets();
   }, []);
 
-  console.log("the assets are", asset);
-
   return (
     <AssetContext.Provider value={asset}>{children}</AssetContext.Provider>
   );
