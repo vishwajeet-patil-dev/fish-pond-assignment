@@ -1,21 +1,12 @@
 import { useApplication } from "@pixi/react";
-import { Assets } from "pixi.js";
-import { useEffect, useState } from "react";
+import { useAsset } from "./context/assetContext";
 
 export default function AddBackground() {
-  const [backgroundTexture, setBackgroundTexture] = useState(null);
+  const assets = useAsset();
   const { app } = useApplication();
-  console.log("the app is", app.screen.height, app.screen.width);
-  useEffect(() => {
-    const texture = Assets.load(
-      "https://pixijs.com/assets/tutorials/fish-pond/pond_background.jpg"
-    ).then((texture) => {
-      setBackgroundTexture(texture);
-    });
-  }, []);
   return (
     <pixiSprite
-      texture={backgroundTexture}
+      texture={assets?.background}
       anchor={0.01}
       height={app.screen.height}
       width={app.screen.width}

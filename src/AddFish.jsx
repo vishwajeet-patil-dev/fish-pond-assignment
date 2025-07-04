@@ -1,63 +1,42 @@
 import { useApplication } from "@pixi/react";
-import { Assets } from "pixi.js";
 import { useEffect, useRef, useState } from "react";
+import { useAsset } from "./context/assetContext";
 
-const assets = [
-  {
-    alias: "fish1",
-    src: "https://pixijs.com/assets/tutorials/fish-pond/fish1.png",
-  },
-  {
-    alias: "fish2",
-    src: "https://pixijs.com/assets/tutorials/fish-pond/fish2.png",
-  },
-  {
-    alias: "fish3",
-    src: "https://pixijs.com/assets/tutorials/fish-pond/fish3.png",
-  },
-  {
-    alias: "fish4",
-    src: "https://pixijs.com/assets/tutorials/fish-pond/fish4.png",
-  },
-  {
-    alias: "fish5",
-    src: "https://pixijs.com/assets/tutorials/fish-pond/fish5.png",
-  },
-];
+const fishAssets = ["fish1", "fish2", "fish3", "fish4", "fish5"];
 
 export default function AddFish({ fishCount = 20 }) {
   const { app } = useApplication();
   const [fishData, setFishData] = useState([]);
   const fishRef = useRef([]);
+  const assets = useAsset();
 
   useEffect(() => {
     Array.from({ length: fishCount }).forEach(() => {
-      const randomAsset = assets[Math.floor(Math.random() * assets.length)];
+      const randomAsset =
+        fishAssets[Math.floor(Math.random() * fishAssets.length)];
+      const texture = assets[randomAsset];
+      const direction = Math.random() * Math.PI * 2;
+      const speed = 2 + Math.random() * 2;
+      const turnSpeed = Math.random() - 0.8;
+      const x = Math.random() * app.screen.width;
+      const y = Math.random() * app.screen.height;
+      const scale = 0.5 + Math.random() * 0.2;
 
-      Assets.load(randomAsset.src).then((texture) => {
-        const direction = Math.random() * Math.PI * 2;
-        const speed = 2 + Math.random() * 2;
-        const turnSpeed = Math.random() - 0.8;
-        const x = Math.random() * app.screen.width;
-        const y = Math.random() * app.screen.height;
-        const scale = 0.5 + Math.random() * 0.2;
+      const fish = {
+        texture,
+        direction,
+        speed,
+        turnSpeed,
+        x,
+        y,
+        scale,
+        rotation: -direction - Math.PI / 2,
+      };
 
-        const fish = {
-          texture,
-          direction,
-          speed,
-          turnSpeed,
-          x,
-          y,
-          scale,
-          rotation: -direction - Math.PI / 2,
-        };
-
-        fishRef.current.push(fish);
-        setFishData((prev) => [...prev, fish]);
-      });
+      fishRef.current.push(fish);
+      setFishData((prev) => [...prev, fish]);
     });
-  }, []);
+  }, [assets]);
 
   useEffect(() => {
     const stagePadding = 100;
@@ -86,11 +65,7 @@ export default function AddFish({ fishCount = 20 }) {
   }, []);
 
   return (
-    <pixiContainer
-      children={<h1>Fish Pond</h1>}
-      height={app.screen.height}
-      width={app.screen.width}
-    >
+    <pixiContainer height={app.screen.height} width={app.screen.width}>
       {fishData.map((fish, index) => (
         <pixiSprite
           key={index}

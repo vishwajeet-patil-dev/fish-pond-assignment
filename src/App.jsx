@@ -3,6 +3,7 @@ import { Container, Graphics, Sprite } from "pixi.js";
 import AddBackground from "./AddBackground";
 import AddFish from "./AddFish";
 import AddOverlay from "./AddOverlay";
+import { useRef } from "react";
 
 extend({
   Container,
@@ -11,11 +12,14 @@ extend({
 });
 
 export default function App() {
+  const parentRef = useRef(null);
   return (
-    <Application resizeTo={window} backgroundColor={"#1099bb"}>
-      <AddBackground />
-      <AddOverlay />
-      <AddFish fishCount={20} />
-    </Application>
+    <div ref={parentRef} style={{ width: "100vw", height: "100vh" }}>
+      <Application resizeTo={parentRef} backgroundColor={"#1099bb"}>
+        <AddBackground />
+        <AddOverlay />
+        <AddFish fishCount={20} />
+      </Application>
+    </div>
   );
 }
